@@ -23,6 +23,12 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Parts and Grafts"
 
+[file_customization]
+
+folder_colors={
+"res://Scripts/": "red"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
