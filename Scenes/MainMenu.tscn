@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bu2vyn85ujyrd"]
+
+[ext_resource type="Script" uid="uid://bdstx6va50emr" path="res://Scenes/Menu.cs" id="1_8saeu"]
+[ext_resource type="FontFile" path="res://Fonts/PublicPixel.otf" id="2_853f1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsbu5"]
+bg_color = Color(0.5176471, 0.10980392, 0.45882353, 1)
+
+[sub_resource type="Theme" id="Theme_oysrn"]
+default_font = ExtResource("2_853f1")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ve6rv"]
+color = Color(0.46110588, 0.0043261666, 0.059150852, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8um5k"]
+bg_color = Color(0.6862745, 0.5019608, 0.79607844, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ghw46"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_df05h"]
+
+[node name="MainMenu" type="Control" unique_id=1574375585 groups=["ButtonGroup"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8saeu")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1300152300]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=67317281]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nsbu5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1988044181]
+layout_mode = 2
+theme = SubResource("Theme_oysrn")
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1476287572]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18176553, 0.046182968, 0.022274917, 1)
+theme_override_constants/line_spacing = 12
+theme_override_constants/paragraph_spacing = 21
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxLine_ve6rv")
+text = "PaRts aNd GraFts"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1853059393 groups=["ButtonGroup"]]
+layout_mode = 2
+theme_override_constants/line_spacing = 1
+theme_override_styles/hover = SubResource("StyleBoxFlat_8um5k")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ghw46")
+text = "START GAMEU"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=900510273 groups=["ButtonGroup"]]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_df05h")
+text = "QUITING ALREADY?!?"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer/Play" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_button_pressed"]

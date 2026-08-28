@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bot20o2a8c04r"]
+
+[node name="ModeSelect" type="Control" unique_id=1213397673]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="Panel" parent="." unique_id=772557456]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG" unique_id=851647103]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BG" unique_id=1963462376]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="BG" unique_id=702252669]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.54
+anchor_top = 0.086
+anchor_right = 0.96900004
+anchor_bottom = 0.88900006
+offset_left = -0.08001709
+offset_top = 0.27199936
+offset_right = -0.28808594
+offset_bottom = -0.072021484
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BG/Panel" unique_id=1486436546]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_top = 4.0
+offset_right = 52.0
+offset_bottom = 27.0
+grow_horizontal = 2
+text = "ZA-COLLECTION OF AMALGAM"
+
+[node name="Panel2" type="Panel" parent="BG" unique_id=1930801900]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.086
+anchor_right = 0.48400003
+anchor_bottom = 0.87200004
+offset_left = 0.13599777
+offset_top = 0.27199936
+offset_right = 0.4319458
+offset_bottom = -0.056030273
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="BG/Panel2" unique_id=1178733992]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "ZA CONSUME"
+
+[node name="Panel2" type="Panel" parent="." unique_id=1279331121]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1090419007]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
