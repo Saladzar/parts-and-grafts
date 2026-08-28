@@ -1,31 +1,25 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class MainMenu : Control
 {
-	
-	[Export]
-	public string StartScenePath = "";
+    public override void _Ready()
+    {
+        Button start = GetNode<Button>("MarginContainer/VBoxContainer/PlayButton");
+        Button quit = GetNode<Button>("MarginContainer/VBoxContainer/QuitButton");
 
-	
-	public override void _Ready()
-	{
-	
-	public void OnPlayButtonPressed()
-	{
-		
-		GetTree().ChangeSceneToFile(StartScenePath);
-	}
-	
-	public void OnQuitButtonPressed()
-	{
-		
-		GetTree().Quit();
-	}
-}
+        start.Pressed += OnStart;
+        quit.Pressed += OnQuit;
+    }
 
+    private void OnStart()
+    {
+        var scene = GD.Load<PackedScene>("res://Scenes/StartGame.tscn");
+        GetTree().ChangeSceneToPacked(scene);
+    }
 
-	
-	
-	
+    private void OnQuit()
+    {
+        GetTree().Quit();
+    }
 }
