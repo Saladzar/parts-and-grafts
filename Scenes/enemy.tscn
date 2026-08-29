@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://v2g1aahp5hb3" path="res://Scripts/Enemy.cs" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://b7cxd3squogct" path="res://icon.svg" id="1_hghv2"]
+[ext_resource type="Resource" uid="uid://bo1kp260kdbj5" path="res://Resources/Body Parts/base.tres" id="2_afpow"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
-size = Vector2(128, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_go701"]
+radius = 72.06247
 
 [node name="Enemy" type="Node2D" unique_id=1761392579]
 script = ExtResource("1_1f0kj")
+BodyPartData = ExtResource("2_afpow")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=682759065]
 texture = ExtResource("1_hghv2")
@@ -15,4 +17,4 @@ texture = ExtResource("1_hghv2")
 [node name="Area2D" type="Area2D" parent="." unique_id=1143367255]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1804781307]
-shape = SubResource("RectangleShape2D_1f0kj")
+shape = SubResource("CircleShape2D_go701")

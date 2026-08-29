@@ -1,12 +1,218 @@
 [gd_scene format=3 uid="uid://c1ia236c2idfi"]
 
-[ext_resource type="PackedScene" uid="uid://c0yu8rfi73gmm" path="res://Scenes/unit.tscn" id="2_5a7ea"]
+[ext_resource type="PackedScene" uid="uid://d35dkq608lnql" path="res://Scenes/player.tscn" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://u5m1drjmsmqj" path="res://Scenes/enemy.tscn" id="3_8j60k"]
 
 [node name="World" type="Node2D" unique_id=1811479385]
 
-[node name="Unit" parent="." unique_id=1272170538 instance=ExtResource("2_5a7ea")]
-position = Vector2(195, 185)
+[node name="Player" parent="." unique_id=1055024709 instance=ExtResource("1_a02cp")]
 
 [node name="Enemy" parent="." unique_id=1761392579 instance=ExtResource("3_8j60k")]
-position = Vector2(939, 481)
+position = Vector2(925, 329)
+
+[node name="Enemy2" parent="." unique_id=481509011 instance=ExtResource("3_8j60k")]
+position = Vector2(528, 517)
+
+[node name="Enemy3" parent="." unique_id=1821703009 instance=ExtResource("3_8j60k")]
+position = Vector2(456, 143)
+
+[node name="Enemy4" parent="." unique_id=1522186327 instance=ExtResource("3_8j60k")]
+position = Vector2(798, 496)
+
+[node name="Enemy5" parent="." unique_id=1956891219 instance=ExtResource("3_8j60k")]
+position = Vector2(892, 151)
+
+[node name="Enemy6" parent="." unique_id=1236694845 instance=ExtResource("3_8j60k")]
+position = Vector2(346, 357)
+
+[node name="Enemy7" parent="." unique_id=591332634 instance=ExtResource("3_8j60k")]
+position = Vector2(69, 326)
+
+[node name="Enemy8" parent="." unique_id=1285361516 instance=ExtResource("3_8j60k")]
+position = Vector2(690, 108)
+
+[node name="Enemy9" parent="." unique_id=701354458 instance=ExtResource("3_8j60k")]
+position = Vector2(304, 552)
+
+[node name="Enemy10" parent="." unique_id=162851982 instance=ExtResource("3_8j60k")]
+position = Vector2(601, 300)
+
+[node name="Enemy11" parent="." unique_id=1687087317 instance=ExtResource("3_8j60k")]
+position = Vector2(181, 153)
+
+[node name="Enemy12" parent="." unique_id=1677937727 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy22" parent="." unique_id=508374898 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy23" parent="." unique_id=1649652289 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy24" parent="." unique_id=1194654650 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy25" parent="." unique_id=726091975 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy26" parent="." unique_id=500563292 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy27" parent="." unique_id=1049515500 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy28" parent="." unique_id=1348983156 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy29" parent="." unique_id=176527013 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy30" parent="." unique_id=489599191 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy31" parent="." unique_id=1046597499 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy32" parent="." unique_id=1713668211 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy33" parent="." unique_id=1127567035 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy34" parent="." unique_id=926159659 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy35" parent="." unique_id=1335081433 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy36" parent="." unique_id=1335200867 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy37" parent="." unique_id=1142693219 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy38" parent="." unique_id=673115382 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy39" parent="." unique_id=1169773976 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy40" parent="." unique_id=1461243216 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy41" parent="." unique_id=168965212 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy42" parent="." unique_id=1346679 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy43" parent="." unique_id=982978859 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy44" parent="." unique_id=651245503 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy45" parent="." unique_id=998732187 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy46" parent="." unique_id=1122603712 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy47" parent="." unique_id=1157047646 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy48" parent="." unique_id=1316158939 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy49" parent="." unique_id=1378097176 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy50" parent="." unique_id=1971488418 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy51" parent="." unique_id=1949777670 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy52" parent="." unique_id=1812048889 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy53" parent="." unique_id=590453860 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy54" parent="." unique_id=2018026409 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy55" parent="." unique_id=123578701 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy56" parent="." unique_id=870921089 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy57" parent="." unique_id=1542922360 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy58" parent="." unique_id=1777516673 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy59" parent="." unique_id=1162792344 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy60" parent="." unique_id=652208697 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy61" parent="." unique_id=403752311 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy62" parent="." unique_id=131888647 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy63" parent="." unique_id=1720520080 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy64" parent="." unique_id=233013213 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy65" parent="." unique_id=823967916 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy66" parent="." unique_id=942568267 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy67" parent="." unique_id=1943848796 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy68" parent="." unique_id=1932306749 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy69" parent="." unique_id=1482902170 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy70" parent="." unique_id=1355047206 instance=ExtResource("3_8j60k")]
+position = Vector2(89, 436)
+
+[node name="Enemy13" parent="." unique_id=1868293216 instance=ExtResource("3_8j60k")]
+position = Vector2(750, 232)
+
+[node name="Enemy14" parent="." unique_id=170936647 instance=ExtResource("3_8j60k")]
+position = Vector2(737, 365)
+
+[node name="Enemy15" parent="." unique_id=654577717 instance=ExtResource("3_8j60k")]
+position = Vector2(647, 505)
+
+[node name="Enemy16" parent="." unique_id=1870244694 instance=ExtResource("3_8j60k")]
+position = Vector2(541, 419)
+
+[node name="Enemy17" parent="." unique_id=645554477 instance=ExtResource("3_8j60k")]
+position = Vector2(413, 458)
+
+[node name="Enemy18" parent="." unique_id=1737581225 instance=ExtResource("3_8j60k")]
+position = Vector2(177, 571)
+
+[node name="Enemy19" parent="." unique_id=1358374103 instance=ExtResource("3_8j60k")]
+position = Vector2(475, 267)
+
+[node name="Enemy20" parent="." unique_id=1943250618 instance=ExtResource("3_8j60k")]
+position = Vector2(294, 226)
+
+[node name="Enemy21" parent="." unique_id=70122892 instance=ExtResource("3_8j60k")]
+position = Vector2(201, 366)
