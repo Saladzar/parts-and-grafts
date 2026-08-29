@@ -68,6 +68,11 @@ public partial class Player : Node2D
 			Attack();
 	}
 
+	public Vector2 GetPosition()
+	{
+		return Position;
+	}
+
 	private void Attack()
 	{
 		if (isDashing)
