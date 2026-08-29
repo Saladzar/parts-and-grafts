@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class Player : Node2D
 {
-	private const float MoveSpeed = 100f;
+	private const float MoveSpeed = 125f;
 	private const float DashSpeed = 400f;
 	private const float DashDuration = 0.3f;
 	private const int AttackDamage = 10;
