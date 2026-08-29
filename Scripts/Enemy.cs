@@ -19,6 +19,7 @@ public partial class Enemy : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		
 	}
 
 	public void Hit(int damage, Vector2 knockbackDirection = default, float knockbackStrength = 0f, Player attacker = null)
