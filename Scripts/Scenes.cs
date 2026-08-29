@@ -7,4 +7,7 @@ public partial class Scenes : Node
         GD.Load<PackedScene>("res://Scenes/unit.tscn");
     public static readonly PackedScene Enemy =
         GD.Load<PackedScene>("res://Scenes/enemy.tscn");
+
+    public static readonly PackedScene BodyPart =
+        GD.Load<PackedScene>("res://Scenes/body_part.tscn");
 }
