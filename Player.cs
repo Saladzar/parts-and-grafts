@@ -15,7 +15,6 @@ public partial class Player : Node2D
 	private float dashTimer;
 	private bool isDashing;
 	[Export] private Node2D bodyParts;
-	[Export] private Area2D playerBodyArea;
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
 	private int partCount = 0;
 
@@ -88,24 +87,36 @@ public partial class Player : Node2D
 	{
 		HashSet<Enemy> hitEnemies = new();
 
-		foreach (Area2D overlappingArea in playerBodyArea.GetOverlappingAreas())
+		foreach (Area2D attackArea in GetAttackAreas())
 		{
-			if (overlappingArea.GetParent() is not Enemy enemy)
-				continue;
+			foreach (Area2D overlappingArea in attackArea.GetOverlappingAreas())
+			{
+				if (overlappingArea.GetParent() is not Enemy enemy)
+					continue;
 
-			if (!hitEnemies.Add(enemy))
-				continue;
+				if (!hitEnemies.Add(enemy))
+					continue;
 
-			Vector2 knockbackDirection = dashDirection != Vector2.Zero ? dashDirection : movementDirection;
-			enemy.Hit(AttackDamage, knockbackDirection, 30f, this);
-			isDashing = false;
-			dashDirection = Vector2.Zero;
-			dashTimer = 0f;
-			return;
+				Vector2 knockbackDirection = dashDirection != Vector2.Zero ? dashDirection : movementDirection;
+				enemy.Hit(AttackDamage, knockbackDirection, 30f, this);
+				isDashing = false;
+				dashDirection = Vector2.Zero;
+				dashTimer = 0f;
+				return;
+			}
 		}
 	}
 
-	private void CollectAttackAreas(Node node, List<Area2D> areas)
+    private IEnumerable<Area2D> GetAttackAreas()
+    {
+        List<Area2D> areas = new();
+		CollectAttackAreas(this, areas);
+		if (bodyParts != null)
+			CollectAttackAreas(bodyParts, areas);
+		return areas;
+    }
+
+    private void CollectAttackAreas(Node node, List<Area2D> areas)
 	{
 		if (node is Area2D area)
 			areas.Add(area);
@@ -162,7 +173,7 @@ public partial class Player : Node2D
 				maxRadius = distance;
 		}
 
-		return maxRadius;
+		return Math.Max(maxRadius, 30f);
 	}
 
 	private bool HasOverlap(Vector2 position, Shape2D shape)
