@@ -1,38 +1,49 @@
 [gd_scene format=3 uid="uid://c1ia236c2idfi"]
 
+[ext_resource type="Script" uid="uid://8syrc4re3lc" path="res://Scripts/GameManager.cs" id="1_8j60k"]
 [ext_resource type="PackedScene" uid="uid://d35dkq608lnql" path="res://Scenes/player.tscn" id="1_a02cp"]
+[ext_resource type="Script" uid="uid://lxe31x1p6voj" path="res://Scripts/EnemySpawner.cs" id="2_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://u5m1drjmsmqj" path="res://Scenes/enemy.tscn" id="3_8j60k"]
+[ext_resource type="PackedScene" uid="uid://r6u42pkwiu7m" path="res://Scenes/hud.tscn" id="5_fo5ed"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_fo5ed"]
+script/source = "using Godot;
+using System;
+
+public partial class Hud : CanvasLayer
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
 
 [node name="World" type="Node2D" unique_id=1811479385]
 
+[node name="GameManager" type="Node2D" parent="." unique_id=384517802]
+script = ExtResource("1_8j60k")
+
 [node name="Player" parent="." unique_id=1055024709 instance=ExtResource("1_a02cp")]
+position = Vector2(575, 325)
 
-[node name="Enemy" parent="." unique_id=1761392579 instance=ExtResource("3_8j60k")]
-position = Vector2(925, 329)
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1481331558]
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
 
-[node name="Enemy2" parent="." unique_id=481509011 instance=ExtResource("3_8j60k")]
-position = Vector2(528, 517)
+[node name="Enemy Spawner" type="Node2D" parent="." unique_id=445193726]
+script = ExtResource("2_5a7ea")
+EnemyScene = ExtResource("3_8j60k")
 
-[node name="Enemy3" parent="." unique_id=1821703009 instance=ExtResource("3_8j60k")]
-position = Vector2(456, 143)
+[node name="HUD" parent="." unique_id=1294961361 instance=ExtResource("5_fo5ed")]
+script = SubResource("CSharpScript_fo5ed")
 
-[node name="Enemy4" parent="." unique_id=1522186327 instance=ExtResource("3_8j60k")]
-position = Vector2(798, 496)
+[node name="Timer" type="Timer" parent="." unique_id=1601314328]
+autostart = true
 
-[node name="Enemy5" parent="." unique_id=1956891219 instance=ExtResource("3_8j60k")]
-position = Vector2(892, 151)
-
-[node name="Enemy6" parent="." unique_id=1236694845 instance=ExtResource("3_8j60k")]
-position = Vector2(346, 357)
-
-[node name="Enemy7" parent="." unique_id=591332634 instance=ExtResource("3_8j60k")]
-position = Vector2(69, 326)
-
-[node name="Enemy8" parent="." unique_id=1285361516 instance=ExtResource("3_8j60k")]
-position = Vector2(690, 108)
-
-[node name="Enemy9" parent="." unique_id=701354458 instance=ExtResource("3_8j60k")]
-position = Vector2(304, 552)
-
-[node name="Enemy10" parent="." unique_id=162851982 instance=ExtResource("3_8j60k")]
-position = Vector2(601, 300)
+[connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]

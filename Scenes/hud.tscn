@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://r6u42pkwiu7m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3gfia"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_e0onf"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_fccik"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjfho"]
+font_size = 30
+
+[node name="HUD" type="CanvasLayer" unique_id=1294961361]
+
+[node name="Control" type="Control" parent="." unique_id=1116532978]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopHUD" type="VBoxContainer" parent="Control" unique_id=202703171]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Time" type="HBoxContainer" parent="Control/TopHUD" unique_id=1466436021]
+layout_mode = 2
+alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Control/TopHUD/Time" unique_id=2128773510]
+layout_mode = 2
+text = "TIME:"
+label_settings = SubResource("LabelSettings_3gfia")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameTime" type="Label" parent="Control/TopHUD/Time" unique_id=1737816763]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_e0onf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BotHUD" type="VBoxContainer" parent="Control" unique_id=253359972]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Score" type="HBoxContainer" parent="Control/BotHUD" unique_id=67700428]
+layout_mode = 2
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Control/BotHUD/Score" unique_id=882091970]
+layout_mode = 2
+text = "SCORE:"
+label_settings = SubResource("LabelSettings_fccik")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreCounter" type="Label" parent="Control/BotHUD/Score" unique_id=211731813]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_bjfho")
+horizontal_alignment = 1
+vertical_alignment = 1
