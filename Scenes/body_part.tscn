@@ -13,5 +13,7 @@ script = ExtResource("1_mudx1")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_flqu8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=388078251]
+[node name="Area2D" type="Area2D" parent="." unique_id=890361276]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=388078251]
 shape = SubResource("CircleShape2D_5kydl")
