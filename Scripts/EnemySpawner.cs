@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public partial class EnemySpawner : Node
 {
+    [Export] public Marker2D SpawnPoint;
     [Export] private PackedScene EnemyScene;
     int maxEnemies = 10;
 	
@@ -11,19 +12,17 @@ public partial class EnemySpawner : Node
     float spawnRate = 5f;
     Random rnd = new Random();
     float spawnRadius = 500f;
-
-    private Vector2 playerPosition;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         if (EnemyScene == null) return;
+        if (SpawnPoint == null ) return;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
         timer += (float)delta;
-        playerPosition = GetNodeOrNull<Player>("../Player")?.GetPosition() ?? Vector2.Zero;
 		
         if(timer>spawnRate)
         {
@@ -35,11 +34,11 @@ public partial class EnemySpawner : Node
     {
         float offsetX = rnd.Next(0, 1080); 
         float offsetY = rnd.Next(0, 720);
-        return playerPosition + new Vector2(offsetX, offsetY);
+        return SpawnPoint.GlobalPosition + new Vector2(offsetX, offsetY);
     }
     private void SpawnEnemy()
     {
-        if (EnemyScene == null)
+        if (SpawnPoint == null || EnemyScene == null)
             return;
 
         Node2D enemy = EnemyScene.Instantiate<Node2D>();

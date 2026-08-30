@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BodyPartsData" format=3 uid="uid://bo1kp260kdbj5"]
+
+[ext_resource type="Texture2D" uid="uid://b7cxd3squogct" path="res://icon.svg" id="1_kpepr"]
+[ext_resource type="Script" uid="uid://c7aph1031306m" path="res://Resources/BodyPartsData.cs" id="2_7wbyh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ivyjr"]
+radius = 5.0
+
+[resource]
+script = ExtResource("2_7wbyh")
+Texture = ExtResource("1_kpepr")
+Shape = SubResource("CircleShape2D_ivyjr")
