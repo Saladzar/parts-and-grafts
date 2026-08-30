@@ -112,16 +112,16 @@ public partial class Player : Node2D
 		}
 	}
 
-    private IEnumerable<Area2D> GetAttackAreas()
-    {
-        List<Area2D> areas = new();
+	private IEnumerable<Area2D> GetAttackAreas()
+	{
+		List<Area2D> areas = new();
 		CollectAttackAreas(this, areas);
 		if (bodyParts != null)
 			CollectAttackAreas(bodyParts, areas);
 		return areas;
-    }
+	}
 
-    private void CollectAttackAreas(Node node, List<Area2D> areas)
+	private void CollectAttackAreas(Node node, List<Area2D> areas)
 	{
 		if (node is Area2D area)
 			areas.Add(area);

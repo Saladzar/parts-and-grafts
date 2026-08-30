@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b5tiktx0n52gr" path="res://Scripts/Player.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://b7cxd3squogct" path="res://icon.svg" id="2_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://dd860a8c7egqf" path="res://Scripts/mixkit-creepy-demon-heavy-breathing-2240 (1).wav" id="3_vgqql"]
+[ext_resource type="Script" uid="uid://btj2yaqnroess" path="res://Scenes/SoundSystem.cs" id="4_vgqql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5kydl"]
 radius = 78.10249
@@ -19,3 +21,15 @@ texture = ExtResource("2_6t5aa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body Parts/Base" unique_id=934836827]
 shape = SubResource("CircleShape2D_5kydl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=204453631]
+stream = ExtResource("3_vgqql")
+
+[node name="Timer" type="Timer" parent="." unique_id=1031776748]
+wait_time = 15.0
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=515378333 node_paths=PackedStringArray("_audioPlayer", "_timer")]
+script = ExtResource("4_vgqql")
+_audioPlayer = NodePath("../AudioStreamPlayer")
+_timer = NodePath("../Timer")
