@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://r6u42pkwiu7m"]
 
+[ext_resource type="Texture2D" uid="uid://curflfuqra8ra" path="res://Art/ForestStuff/Health.png" id="1_e0onf"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_3gfia"]
 font_size = 26
 
@@ -47,6 +49,28 @@ text = "0"
 label_settings = SubResource("LabelSettings_e0onf")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Lives" type="HBoxContainer" parent="Control/TopHUD" unique_id=961676673]
+layout_mode = 2
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="Control/TopHUD/Lives" unique_id=1417267079]
+custom_minimum_size = Vector2(49, 70)
+layout_mode = 2
+texture = ExtResource("1_e0onf")
+expand_mode = 1
+
+[node name="Heart2" type="TextureRect" parent="Control/TopHUD/Lives" unique_id=306354313]
+custom_minimum_size = Vector2(49, 70)
+layout_mode = 2
+texture = ExtResource("1_e0onf")
+expand_mode = 1
+
+[node name="Heart3" type="TextureRect" parent="Control/TopHUD/Lives" unique_id=213246830]
+custom_minimum_size = Vector2(49, 70)
+layout_mode = 2
+texture = ExtResource("1_e0onf")
+expand_mode = 1
 
 [node name="BotHUD" type="VBoxContainer" parent="Control" unique_id=253359972]
 layout_mode = 1

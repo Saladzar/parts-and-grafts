@@ -103,12 +103,16 @@ public partial class Player : Node2D
 	private void CheckEnemyCollisions()
 	{
 		HashSet<Enemy> hitEnemies = new();
+		int playerScore = gameManager != null ? gameManager.GetScore() : 0;
 
 		foreach (Area2D attackArea in GetAttackAreas())
 		{
 			foreach (Area2D overlappingArea in attackArea.GetOverlappingAreas())
 			{
 				if (overlappingArea.GetParent() is not Enemy enemy)
+					continue;
+
+				if (enemy.GetScore() > playerScore)
 					continue;
 
 				if (!hitEnemies.Add(enemy))

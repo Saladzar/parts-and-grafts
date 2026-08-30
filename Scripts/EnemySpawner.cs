@@ -16,12 +16,15 @@ public partial class EnemySpawner : Node
     [Export] private float MaxEnemySizeIncreasePerMinute = 0.5f;
     [Export] private float SpawnRateDecreasePerMinute = 0.5f;
     [Export] private float MinSpawnRate = 1.5f;
+    [Export] private float ScoreScalingPerMinute = 2.5f;
 
-    int maxEnemies = 10;
+    private const int MaxEnemies = 8;
 	
     float timer = 0f;
     Random rnd = new Random();
-    float spawnRadius = 500f;
+    private const float SpawnRadiusMin = 250f;
+    private const float SpawnRadiusMax = 700f;
+    private bool zeroScoreEnemySpawned = false;
 
     private Vector2 playerPosition;
     private GameManager gameManager;
@@ -29,6 +32,13 @@ public partial class EnemySpawner : Node
     public override void _Ready()
     {
         if (EnemyScene == null) return;
+
+        if (BaseSpawnRate <= 0f) BaseSpawnRate = 5f;
+        if (MinSpawnRate <= 0f) MinSpawnRate = 1.5f;
+        if (BaseMaxEnemySize <= 0f) BaseMaxEnemySize = 2.0f;
+        if (MinEnemySize <= 0f) MinEnemySize = 0.5f;
+        if (maxScore <= 0) maxScore = 5;
+
         gameManager = GetNodeOrNull<GameManager>("../GameManager");
         if (gameManager == null)
             GD.PushWarning("EnemySpawner could not find GameManager.");
@@ -39,9 +49,12 @@ public partial class EnemySpawner : Node
     {
         timer += (float)delta;
         playerPosition = GetNodeOrNull<Player>("../Player")?.GetPosition() ?? Vector2.Zero;
-		
+        
         float currentSpawnRate = GetCurrentSpawnRate();
-        if(timer > currentSpawnRate)
+        if (currentSpawnRate <= 0f)
+            currentSpawnRate = 1f;
+
+        if (timer >= currentSpawnRate)
         {
             timer = 0f;
             SpawnEnemy();
@@ -50,28 +63,43 @@ public partial class EnemySpawner : Node
 
     private float GetCurrentSpawnRate()
     {
+        float baseRate = BaseSpawnRate > 0f ? BaseSpawnRate : 5f;
+        float minRate = MinSpawnRate > 0f ? MinSpawnRate : 1.5f;
+
         if (gameManager == null)
-            return BaseSpawnRate;
+            return baseRate;
 
         int gameTime = gameManager.GetGameTime();
         float spawnRateReduction = (gameTime / 60f) * SpawnRateDecreasePerMinute;
-        return Mathf.Max(BaseSpawnRate - spawnRateReduction, MinSpawnRate);
+        return Mathf.Max(baseRate - spawnRateReduction, minRate);
     }
 
     private float GetCurrentMaxEnemySize()
     {
+        float baseMaxSize = BaseMaxEnemySize > 0f ? BaseMaxEnemySize : 2.0f;
+
         if (gameManager == null)
-            return BaseMaxEnemySize;
+            return baseMaxSize;
 
         int gameTime = gameManager.GetGameTime();
         float sizeIncrease = (gameTime / 60f) * MaxEnemySizeIncreasePerMinute;
-        return BaseMaxEnemySize + sizeIncrease;
+        return baseMaxSize + sizeIncrease;
     }
+
+    private int GetCurrentMaxScore()
+    {
+        int gameTime = gameManager != null ? gameManager.GetGameTime() : 0;
+        int currentMaxScore = maxScore > 0 ? maxScore : 5;
+        int scoreIncrease = (int)Math.Floor((gameTime / 60f) * ScoreScalingPerMinute);
+        return Math.Max(currentMaxScore, minScore + 3 + scoreIncrease);
+    }
+
     private Vector2 getRandomSpawnPosition()
     {
-        float offsetX = rnd.Next(-960, 960); 
-        float offsetY = rnd.Next(-540, 540);
-        return playerPosition + new Vector2(offsetX, offsetY);
+        float angle = (float)rnd.NextDouble() * Mathf.Tau;
+        float distance = (float)rnd.NextDouble() * (SpawnRadiusMax - SpawnRadiusMin) + SpawnRadiusMin;
+        Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
+        return playerPosition + offset;
     }
     private void SpawnEnemy()
     {
@@ -80,6 +108,9 @@ public partial class EnemySpawner : Node
             GD.PrintErr("Cannot spawn enemy: EnemyScene or AnimalsDataArray is not configured.");
             return;
         }
+
+        if (GetTree() != null && GetTree().GetNodesInGroup("enemies").Count >= MaxEnemies)
+            return;
 
         Enemy enemy = EnemyScene.Instantiate<Enemy>();
         Vector2 spawnPosition = getRandomSpawnPosition();
@@ -95,7 +126,20 @@ public partial class EnemySpawner : Node
         
         float currentMaxSize = GetCurrentMaxEnemySize();
         float randomSize = (float)rnd.NextDouble() * (currentMaxSize - MinEnemySize) + MinEnemySize;
-        int randomScore = (int)Math.Round(rnd.NextDouble() * maxScore);
+
+        int randomScore;
+        int currentGameTime = gameManager != null ? gameManager.GetGameTime() : 0;
+        if (currentGameTime < 30 && !zeroScoreEnemySpawned)
+        {
+            randomScore = 0;
+            zeroScoreEnemySpawned = true;
+        }
+        else
+        {
+            int currentMaxScore = GetCurrentMaxScore();
+            randomScore = rnd.Next(minScore, currentMaxScore + 1);
+        }
+
         enemy.SetSize(randomSize);
         enemy.SetScore(randomScore);
         enemy.ConfigureLabel();
