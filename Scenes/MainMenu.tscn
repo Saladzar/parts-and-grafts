@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cjthihj8ka336"]
+
+[ext_resource type="Script" uid="uid://y3g523kfeipq" path="res://Scripts/MainMenu.cs" id="1_i26rj"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ve6rv"]
+color = Color(0.46110588, 0.0043261666, 0.059150852, 1)
+
+[node name="MainMenu" type="Control" unique_id=1574375585]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i26rj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1300152300]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1988044181]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1476287572]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18176553, 0.046182968, 0.022274917, 1)
+theme_override_constants/line_spacing = 12
+theme_override_constants/paragraph_spacing = 21
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxLine_ve6rv")
+text = "PaRts aNd GraFts"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1853059393]
+layout_mode = 2
+theme_override_constants/line_spacing = 1
+text = "START GAMEU"
+script = ExtResource("1_i26rj")
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=900510273]
+layout_mode = 2
+text = "QUITING ALREADY?!?"
+script = ExtResource("1_i26rj")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

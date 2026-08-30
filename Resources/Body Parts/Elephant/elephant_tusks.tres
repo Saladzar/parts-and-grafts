@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BodyPartsData" format=3 uid="uid://ceejdwllsie2w"]
+
+[ext_resource type="Texture2D" uid="uid://bysh73lwnevqd" path="res://Art/EVEN BETTER PAG animals/Elephant/Elephant Tusks.PNG" id="1_cg340"]
+[ext_resource type="Script" uid="uid://c7aph1031306m" path="res://Resources/BodyPartsData.cs" id="2_e6aep"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cg340"]
+
+[resource]
+script = ExtResource("2_e6aep")
+Texture = ExtResource("1_cg340")
+Shape = SubResource("CircleShape2D_cg340")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BodyPartsData" format=3 uid="uid://dvcetlxc072bq"]
+
+[ext_resource type="Texture2D" uid="uid://df246i41gbvgx" path="res://Art/EVEN BETTER PAG animals/black panther/Black Panther Head.PNG" id="1_6p07k"]
+[ext_resource type="Script" uid="uid://c7aph1031306m" path="res://Resources/BodyPartsData.cs" id="2_2i0ne"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1c7by"]
+
+[resource]
+script = ExtResource("2_2i0ne")
+Texture = ExtResource("1_6p07k")
+Shape = SubResource("CircleShape2D_1c7by")

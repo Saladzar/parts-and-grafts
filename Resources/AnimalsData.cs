@@ -10,11 +10,11 @@ public partial class AnimalsData : Resource
     public Shape2D Shape;
 
     [Export]
-    public int Health;
+    public bool FlipHorizontally;
 
     [Export]
-    public int Damage;
+    public BodyPartsData[] BodyParts;
 
     [Export]
-    public int Size;
+    public int Health = 3;
 }

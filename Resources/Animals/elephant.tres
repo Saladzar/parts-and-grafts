@@ -1,3 +1,15 @@
-[gd_resource type="Resource" format=3 uid="uid://b67wc8cqk61qj"]
+[gd_resource type="Resource" script_class="AnimalsData" format=3 uid="uid://b67wc8cqk61qj"]
+
+[ext_resource type="Resource" uid="uid://ck3vsb00kq5hm" path="res://Resources/Body Parts/Elephant/elephant_head.tres" id="1_s6n1o"]
+[ext_resource type="Script" uid="uid://c63aj43wx7rm8" path="res://Resources/AnimalsData.cs" id="2_bwx0o"]
+[ext_resource type="Resource" uid="uid://btlh23spcjq0c" path="res://Resources/Body Parts/Elephant/elephant_trunk.tres" id="2_wy8vu"]
+[ext_resource type="Resource" uid="uid://ceejdwllsie2w" path="res://Resources/Body Parts/Elephant/elephant_tusks.tres" id="3_mheom"]
+[ext_resource type="Texture2D" uid="uid://ebqv7gfj2mqf" path="res://Art/EVEN BETTER PAG animals/Elephant/Elephant.PNG" id="4_s6n1o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fkybt"]
 
 [resource]
+script = ExtResource("2_bwx0o")
+Texture = ExtResource("4_s6n1o")
+Shape = SubResource("CircleShape2D_fkybt")
+BodyParts = Array[Object]([ExtResource("1_s6n1o"), ExtResource("2_wy8vu"), ExtResource("3_mheom")])

@@ -2,14 +2,61 @@
 
 [ext_resource type="Script" uid="uid://v2g1aahp5hb3" path="res://Scripts/Enemy.cs" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://b7cxd3squogct" path="res://icon.svg" id="1_hghv2"]
-[ext_resource type="Resource" uid="uid://bo1kp260kdbj5" path="res://Resources/Body Parts/base.tres" id="2_afpow"]
+
+[sub_resource type="Animation" id="Animation_1f0kj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_afpow"]
+resource_name = "run"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.2617994, 0.2617994, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_287tu"]
+_data = {
+&"RESET": SubResource("Animation_1f0kj"),
+&"run": SubResource("Animation_afpow")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_go701"]
 radius = 72.06247
 
-[node name="Enemy" type="Node2D" unique_id=1761392579]
+[sub_resource type="LabelSettings" id="LabelSettings_1f0kj"]
+font_size = 40
+font_color = Color(1, 0, 0, 1)
+
+[node name="Enemy" type="Node2D" unique_id=1761392579 node_paths=PackedStringArray("sizeDisplay")]
+scale = Vector2(0.35, 0.35)
 script = ExtResource("1_1f0kj")
-BodyPartData = ExtResource("2_afpow")
+sizeDisplay = NodePath("SizeDisplay")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1852795089]
+libraries/ = SubResource("AnimationLibrary_287tu")
+autoplay = &"run"
+speed_scale = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=682759065]
 texture = ExtResource("1_hghv2")
@@ -18,3 +65,9 @@ texture = ExtResource("1_hghv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1804781307]
 shape = SubResource("CircleShape2D_go701")
+
+[node name="SizeDisplay" type="Label" parent="." unique_id=623938382]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "10"
+label_settings = SubResource("LabelSettings_1f0kj")

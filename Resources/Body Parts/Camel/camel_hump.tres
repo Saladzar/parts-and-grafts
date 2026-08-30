@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BodyPartsData" format=3 uid="uid://b8dq2d18ha0b2"]
+
+[ext_resource type="Texture2D" uid="uid://ctll0l0bcq7pk" path="res://Art/EVEN BETTER PAG animals/Camel/Camel Humps.PNG" id="1_smal6"]
+[ext_resource type="Script" uid="uid://c7aph1031306m" path="res://Resources/BodyPartsData.cs" id="2_t0u5l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yhy7g"]
+
+[resource]
+script = ExtResource("2_t0u5l")
+Texture = ExtResource("1_smal6")
+Shape = SubResource("CircleShape2D_yhy7g")

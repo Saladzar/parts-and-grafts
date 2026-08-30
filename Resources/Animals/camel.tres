@@ -1,3 +1,15 @@
-[gd_resource type="Resource" format=3 uid="uid://bhlawjjsgl28b"]
+[gd_resource type="Resource" script_class="AnimalsData" format=3 uid="uid://bhlawjjsgl28b"]
+
+[ext_resource type="Resource" uid="uid://diq56o7tqxhdl" path="res://Resources/Body Parts/Camel/camel_body.tres" id="1_6yrf6"]
+[ext_resource type="Resource" uid="uid://dgmotxisl6mor" path="res://Resources/Body Parts/Camel/camel_head.tres" id="2_jqr82"]
+[ext_resource type="Script" uid="uid://c63aj43wx7rm8" path="res://Resources/AnimalsData.cs" id="2_k3p5b"]
+[ext_resource type="Resource" uid="uid://b8dq2d18ha0b2" path="res://Resources/Body Parts/Camel/camel_hump.tres" id="3_4gimi"]
+[ext_resource type="Texture2D" uid="uid://bged7garufold" path="res://Art/EVEN BETTER PAG animals/Camel/Camel.PNG" id="4_6yrf6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
 
 [resource]
+script = ExtResource("2_k3p5b")
+Texture = ExtResource("4_6yrf6")
+Shape = SubResource("CircleShape2D_6t5aa")
+BodyParts = Array[Object]([ExtResource("1_6yrf6"), ExtResource("2_jqr82"), ExtResource("3_4gimi")])

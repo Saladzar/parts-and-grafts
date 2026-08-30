@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class Player : Node2D
 {
-	private const float MoveSpeed = 125f;
+	private const float MoveSpeed = 175f;
 	private const float DashSpeed = 400f;
 	private const float DashDuration = 0.3f;
 	private const int AttackDamage = 10;
@@ -18,6 +18,9 @@ public partial class Player : Node2D
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
 	private int partCount = 0;
 
+	private AnimationPlayer animationPlayer;
+	private GameManager gameManager;
+
 	public override void _Ready()
 	{
 		attackArea = GetNodeOrNull<Area2D>("Area2D");
@@ -25,6 +28,8 @@ public partial class Player : Node2D
 			bodyParts = GetNodeOrNull<Node2D>("Body Parts");
 		rng.Randomize();
 		AddToGroup("player");
+		animationPlayer = GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
+		gameManager = GetTree().CurrentScene.GetNodeOrNull<GameManager>("GameManager");
 	}
 
 	public override void _Process(double delta)
@@ -62,7 +67,14 @@ public partial class Player : Node2D
 		{
 			movementDirection = inputDirection.Normalized();
 			Position += movementDirection * MoveSpeed * dt;
-		}
+			animationPlayer.Play("run");
+		} else
+			animationPlayer.Stop();
+
+		if (inputDirection.X > 0)
+			GetNodeOrNull<Node2D>("Tilt Container").Scale = new Vector2(-1, 1);
+		else if (inputDirection.X < 0)
+			GetNodeOrNull<Node2D>("Tilt Container").Scale = new Vector2(1, 1);
 
 		if (Input.IsActionJustPressed("Attack"))
 			Attack();
@@ -132,10 +144,10 @@ public partial class Player : Node2D
 		}
 	}
 
-	public void AddBodyPart(Texture2D texture, Shape2D shape)
+	public void AddBodyPart(BodyPartsData bodyPartData)
 	{
 		if (bodyParts == null)
-			bodyParts = GetNodeOrNull<Node2D>("Body Parts");
+			bodyParts = GetNodeOrNull<Node2D>("Tilt Container/Body Parts");
 
 		if (bodyParts == null)
 		{
@@ -158,13 +170,19 @@ public partial class Player : Node2D
 				Mathf.Cos(angle) * distance,
 				Mathf.Sin(angle) * distance
 			);
-		} while (HasOverlap(newPart.Position, shape));
+		} while (HasOverlap(newPart.Position, bodyPartData.Shape));
 
 
 		bodyParts.AddChild(newPart);
-		newPart.Setup(texture, shape);
+		
+		// Apply random rotation and reflection
+		float randomRotation = rng.RandfRange(0f, Mathf.Tau);
+		bool randomFlip = rng.Randf() > 0.5f;
+		
+		newPart.Setup(bodyPartData.Texture, bodyPartData.Shape, randomRotation, randomFlip);
 
 		partCount++;
+		gameManager.SetScore(partCount);
 	}
 
 	private float GetMaxBodyPartRadius()

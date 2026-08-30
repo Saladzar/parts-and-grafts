@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BodyPartsData" format=3 uid="uid://bqlepo4567de2"]
+
+[ext_resource type="Texture2D" uid="uid://b32chn78rlqw8" path="res://Art/EVEN BETTER PAG animals/Dumbhorse/DumbHorsebod.PNG" id="1_t522e"]
+[ext_resource type="Script" uid="uid://c7aph1031306m" path="res://Resources/BodyPartsData.cs" id="2_5mvv7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymq1h"]
+
+[resource]
+script = ExtResource("2_5mvv7")
+Texture = ExtResource("1_t522e")
+Shape = SubResource("CircleShape2D_ymq1h")

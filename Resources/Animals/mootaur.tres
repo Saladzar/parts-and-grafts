@@ -1,3 +1,14 @@
-[gd_resource type="Resource" format=3 uid="uid://cfb5d1vmlwdmn"]
+[gd_resource type="Resource" script_class="AnimalsData" format=3 uid="uid://cfb5d1vmlwdmn"]
+
+[ext_resource type="Resource" uid="uid://dm4mhk2cq5epi" path="res://Resources/Body Parts/Mootaur/mootaur_arms.tres" id="1_4a17s"]
+[ext_resource type="Resource" uid="uid://dugjag57wk2mt" path="res://Resources/Body Parts/Mootaur/mootaur_body.tres" id="2_0itnp"]
+[ext_resource type="Script" uid="uid://c63aj43wx7rm8" path="res://Resources/AnimalsData.cs" id="2_j2gw2"]
+[ext_resource type="Resource" uid="uid://bq31b5w8qi4m6" path="res://Resources/Body Parts/Mootaur/mootaur_head.tres" id="3_fy8jx"]
+[ext_resource type="Resource" uid="uid://dt6xsekm770db" path="res://Resources/Body Parts/Mootaur/mootaur_legs.tres" id="4_bon7r"]
+[ext_resource type="Texture2D" uid="uid://d0716teymewvh" path="res://Art/EVEN BETTER PAG animals/mootaur/mootaur.PNG" id="5_4a17s"]
 
 [resource]
+script = ExtResource("2_j2gw2")
+Texture = ExtResource("5_4a17s")
+FlipHorizontally = true
+BodyParts = Array[Object]([ExtResource("1_4a17s"), ExtResource("2_0itnp"), ExtResource("3_fy8jx"), ExtResource("4_bon7r")])

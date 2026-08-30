@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BodyPartsData" format=3 uid="uid://x5qpi7twdfii"]
+
+[ext_resource type="Texture2D" uid="uid://cog8n7vy2sr4w" path="res://Art/EVEN BETTER PAG animals/wolf/worlfbod.PNG" id="1_2rv7y"]
+[ext_resource type="Script" uid="uid://c7aph1031306m" path="res://Resources/BodyPartsData.cs" id="2_bnygy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmbnr"]
+
+[resource]
+script = ExtResource("2_bnygy")
+Texture = ExtResource("1_2rv7y")
+Shape = SubResource("CircleShape2D_qmbnr")

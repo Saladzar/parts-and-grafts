@@ -1,3 +1,17 @@
-[gd_resource type="Resource" format=3 uid="uid://85by0fnb32a4"]
+[gd_resource type="Resource" script_class="AnimalsData" format=3 uid="uid://85by0fnb32a4"]
+
+[ext_resource type="Resource" uid="uid://bqlepo4567de2" path="res://Resources/Body Parts/Horse/horse_body.tres" id="1_tliaf"]
+[ext_resource type="Script" uid="uid://c63aj43wx7rm8" path="res://Resources/AnimalsData.cs" id="2_da3k4"]
+[ext_resource type="Resource" uid="uid://8s5mv7ipfo5y" path="res://Resources/Body Parts/Horse/horse_head.tres" id="2_wkmp8"]
+[ext_resource type="Resource" uid="uid://bxj3p4jdnku7u" path="res://Resources/Body Parts/Horse/horse_legs.tres" id="3_n2yvx"]
+[ext_resource type="Resource" uid="uid://4vq3h5xcifp6" path="res://Resources/Body Parts/Horse/horse_wing.tres" id="4_p0yuu"]
+[ext_resource type="Texture2D" uid="uid://b0rhvg2f462n" path="res://Art/EVEN BETTER PAG animals/Dumbhorse/DumbHorse.PNG" id="5_tliaf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3wgy"]
 
 [resource]
+script = ExtResource("2_da3k4")
+Texture = ExtResource("5_tliaf")
+Shape = SubResource("CircleShape2D_x3wgy")
+FlipHorizontally = true
+BodyParts = Array[Object]([ExtResource("1_tliaf"), ExtResource("2_wkmp8"), ExtResource("3_n2yvx"), ExtResource("4_p0yuu")])

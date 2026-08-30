@@ -1,3 +1,18 @@
-[gd_resource type="Resource" format=3 uid="uid://bgorexnbov564"]
+[gd_resource type="Resource" script_class="AnimalsData" format=3 uid="uid://bgorexnbov564"]
+
+[ext_resource type="Resource" uid="uid://cgadylx6xcj4o" path="res://Resources/Body Parts/Duck/duck_beak.tres" id="1_n6xc6"]
+[ext_resource type="Script" uid="uid://c63aj43wx7rm8" path="res://Resources/AnimalsData.cs" id="2_tbq3x"]
+[ext_resource type="Resource" uid="uid://df865tiuody4p" path="res://Resources/Body Parts/Duck/duck_breast.tres" id="2_ugnnr"]
+[ext_resource type="Resource" uid="uid://biovrftyql3d1" path="res://Resources/Body Parts/Duck/duck_feet.tres" id="3_g5n4p"]
+[ext_resource type="Resource" uid="uid://cvurhds16ghnn" path="res://Resources/Body Parts/Duck/duck_head.tres" id="4_yy6gj"]
+[ext_resource type="Resource" uid="uid://gqoqjpcya24n" path="res://Resources/Body Parts/Duck/duck_wing.tres" id="5_j58sh"]
+[ext_resource type="Texture2D" uid="uid://cbgl3pfbmonhq" path="res://Art/EVEN BETTER PAG animals/Duck/Duck.PNG" id="6_n6xc6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vgqql"]
 
 [resource]
+script = ExtResource("2_tbq3x")
+Texture = ExtResource("6_n6xc6")
+Shape = SubResource("CircleShape2D_vgqql")
+FlipHorizontally = true
+BodyParts = Array[Object]([ExtResource("1_n6xc6"), ExtResource("2_ugnnr"), ExtResource("3_g5n4p"), ExtResource("4_yy6gj"), ExtResource("5_j58sh")])

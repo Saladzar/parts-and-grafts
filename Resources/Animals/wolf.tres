@@ -1,3 +1,17 @@
-[gd_resource type="Resource" format=3 uid="uid://dkhsv2j36kbhi"]
+[gd_resource type="Resource" script_class="AnimalsData" format=3 uid="uid://dkhsv2j36kbhi"]
+
+[ext_resource type="Resource" uid="uid://x5qpi7twdfii" path="res://Resources/Body Parts/Wolf/wolf_body.tres" id="1_njgdl"]
+[ext_resource type="Script" uid="uid://c63aj43wx7rm8" path="res://Resources/AnimalsData.cs" id="2_4kaxs"]
+[ext_resource type="Resource" uid="uid://bt5w2qbv3qni0" path="res://Resources/Body Parts/Wolf/wolf_head.tres" id="2_h6ryv"]
+[ext_resource type="Resource" uid="uid://cjtnohvbwpykt" path="res://Resources/Body Parts/Wolf/wolf_legs.tres" id="3_jdk57"]
+[ext_resource type="Resource" uid="uid://cnoxps3a6jlwa" path="res://Resources/Body Parts/Wolf/wolf_tail.tres" id="4_ys2fe"]
+[ext_resource type="Texture2D" uid="uid://q2miulyn2iie" path="res://Art/EVEN BETTER PAG animals/wolf/worlf.PNG" id="5_njgdl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
 
 [resource]
+script = ExtResource("2_4kaxs")
+Texture = ExtResource("5_njgdl")
+Shape = SubResource("CircleShape2D_3smsa")
+FlipHorizontally = true
+BodyParts = Array[Object]([ExtResource("1_njgdl"), ExtResource("2_h6ryv"), ExtResource("3_jdk57"), ExtResource("4_ys2fe")])

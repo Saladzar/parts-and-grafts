@@ -1,3 +1,17 @@
-[gd_resource type="Resource" format=3 uid="uid://g0ohkemdfaqn"]
+[gd_resource type="Resource" script_class="AnimalsData" format=3 uid="uid://g0ohkemdfaqn"]
+
+[ext_resource type="Resource" uid="uid://b2annqauhovof" path="res://Resources/Body Parts/Wombat/wombat_ass.tres" id="1_c11tx"]
+[ext_resource type="Resource" uid="uid://cm0wp83bktyu5" path="res://Resources/Body Parts/Wombat/wombat_body.tres" id="2_61a30"]
+[ext_resource type="Script" uid="uid://c63aj43wx7rm8" path="res://Resources/AnimalsData.cs" id="2_vgrs7"]
+[ext_resource type="Resource" uid="uid://k7rmxrr5y2iq" path="res://Resources/Body Parts/Wombat/wombat_head.tres" id="3_xgnfv"]
+[ext_resource type="Resource" uid="uid://bj4kum1mfvn5o" path="res://Resources/Body Parts/Wombat/wombat_legs.tres" id="4_x4xun"]
+[ext_resource type="Texture2D" uid="uid://bsqeiq2c2wfut" path="res://Art/EVEN BETTER PAG animals/Wombat/Wombat.PNG" id="5_c11tx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8erm5"]
 
 [resource]
+script = ExtResource("2_vgrs7")
+Texture = ExtResource("5_c11tx")
+Shape = SubResource("CircleShape2D_8erm5")
+FlipHorizontally = true
+BodyParts = Array[Object]([ExtResource("1_c11tx"), ExtResource("2_61a30"), ExtResource("3_xgnfv"), ExtResource("4_x4xun")])
